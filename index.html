@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ca">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cronòmetre La Tremenda</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="stage" aria-label="Cronometre de cursa">
+        <div class="brand-strip">
+          <img class="brand-logo" src="logo-geter.png" alt="Grup Excursionista Ter-Guilleries" loading="eager">
+          <div class="race-title" aria-label="La Tremenda">
+            <span>La</span>
+            <strong>Tremenda</strong>
+          </div>
+        </div>
+
+        <div class="timer-panel" data-phase="ready">
+          <img class="dragon-art" src="tremendu-rellotge.png" alt="" aria-hidden="true">
+          <div class="status-row">
+            <p id="phaseLabel">Preparats</p>
+            <p id="speedLabel">1 km</p>
+          </div>
+
+          <div class="round-lockup">
+            <span id="roundLabel">Volta 1</span>
+            <span id="roundTotal">/ 12</span>
+          </div>
+
+          <div class="clock" id="clock">15:00</div>
+
+          <div class="subline">
+            <span id="limitLabel">Temps límit: 15:00</span>
+            <span id="nextLabel">Després: descans 3:00</span>
+          </div>
+
+          <div class="progress-wrap" aria-hidden="true">
+            <div class="progress-track">
+              <div id="phaseProgress" class="progress-fill"></div>
+            </div>
+            <div id="lapDots" class="lap-dots"></div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="control-dock" aria-label="Controls">
+        <div class="primary-actions">
+          <button id="startPauseButton" class="action action-primary" type="button">Comença</button>
+          <button id="nextButton" class="action" type="button">Següent</button>
+          <button id="resetButton" class="action" type="button">Reinicia</button>
+        </div>
+
+        <div class="adjust-grid">
+          <button class="mini-action" type="button" data-adjust="-10">-10 s</button>
+          <button class="mini-action" type="button" data-adjust="10">+10 s</button>
+          <button id="soundButton" class="mini-action active" type="button">So activat</button>
+          <button id="autoTransitionButton" class="mini-action active" type="button">Auto</button>
+          <button id="fullscreenButton" class="mini-action" type="button">Pantalla completa</button>
+        </div>
+
+        <div class="schedule" aria-label="Temps de cada volta">
+          <h2>Rondes</h2>
+          <p class="popular-note">Popular: fins a la volta 5</p>
+          <ol id="scheduleList"></ol>
+        </div>
+      </aside>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
