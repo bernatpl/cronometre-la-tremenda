@@ -47,7 +47,7 @@ button {
 
 .stage {
   display: grid;
-  grid-template-rows: minmax(50px, 8dvh) minmax(0, 1fr) minmax(64px, 9dvh);
+  grid-template-rows: minmax(50px, 8dvh) minmax(0, 1fr);
   gap: clamp(10px, 1.8vmin, 22px);
   min-height: 100dvh;
   padding: clamp(8px, 1.5vmin, 24px);
@@ -302,11 +302,11 @@ button {
   top: 0;
   right: 0;
   bottom: 0;
-  width: min(380px, 100vw);
+  width: clamp(300px, 28vw, 400px);
   display: grid;
   align-content: start;
-  gap: 18px;
-  padding: 22px;
+  gap: clamp(12px, 1.5vmin, 20px);
+  padding: clamp(16px, 2vmin, 26px);
   background: rgba(6, 9, 11, 0.94);
   border-left: 4px solid var(--paper);
   box-shadow: -18px 0 30px rgba(6, 9, 11, 0.38);
@@ -327,7 +327,7 @@ body.controls-visible .control-dock,
 .primary-actions,
 .adjust-grid {
   display: grid;
-  gap: 10px;
+  gap: clamp(8px, 1.2vmin, 12px);
 }
 
 .adjust-grid {
@@ -336,8 +336,9 @@ body.controls-visible .control-dock,
 
 .action,
 .mini-action {
-  min-height: 48px;
-  border-radius: 6px;
+  min-height: clamp(40px, 5.5vmin, 56px);
+  padding: clamp(8px, 1vmin, 12px);
+  border-radius: clamp(4px, 0.6vmin, 8px);
   background: rgba(255, 247, 239, 0.12);
   outline: 2px solid rgba(255, 247, 239, 0.18);
   transition: transform 120ms ease, background 120ms ease, color 120ms ease;
@@ -355,8 +356,8 @@ body.controls-visible .control-dock,
 }
 
 .action {
-  min-height: 68px;
-  font-size: 28px;
+  min-height: clamp(56px, 7vmin, 74px);
+  font-size: clamp(20px, 2.8vmin, 32px);
   text-transform: uppercase;
 }
 
@@ -372,19 +373,19 @@ body.controls-visible .control-dock,
 }
 
 .mini-action {
-  font-size: 15px;
+  font-size: clamp(13px, 1.5vmin, 16px);
   font-weight: 900;
 }
 
 .schedule {
   display: grid;
-  gap: 10px;
-  margin-top: 6px;
+  gap: clamp(8px, 1.2vmin, 12px);
+  margin-top: clamp(4px, 0.8vmin, 8px);
 }
 
 .schedule h2 {
   margin: 0;
-  font-size: 15px;
+  font-size: clamp(13px, 1.5vmin, 16px);
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
@@ -392,14 +393,14 @@ body.controls-visible .control-dock,
 .popular-note {
   margin: -4px 0 2px;
   color: var(--muted);
-  font-size: 13px;
+  font-size: clamp(11px, 1.3vmin, 14px);
   font-weight: 800;
   text-transform: uppercase;
 }
 
 .schedule ol {
   display: grid;
-  gap: 7px;
+  gap: clamp(6px, 0.9vmin, 8px);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -407,15 +408,15 @@ body.controls-visible .control-dock,
 
 .schedule li {
   display: grid;
-  grid-template-columns: 42px 1fr auto;
-  gap: 10px;
+  grid-template-columns: clamp(36px, 4.5vmin, 46px) 1fr auto;
+  gap: clamp(8px, 1.2vmin, 12px);
   align-items: center;
-  min-height: 34px;
-  padding: 7px 9px;
-  border-radius: 4px;
+  min-height: clamp(30px, 4vmin, 38px);
+  padding: clamp(6px, 0.8vmin, 9px) clamp(8px, 1vmin, 11px);
+  border-radius: clamp(3px, 0.5vmin, 5px);
   color: rgba(255, 247, 239, 0.78);
   background: rgba(255, 247, 239, 0.08);
-  font-size: 14px;
+  font-size: clamp(12px, 1.4vmin, 15px);
   cursor: pointer;
   transition: all 150ms ease;
 }
@@ -518,9 +519,227 @@ body.controls-visible .control-dock,
   }
 }
 
-@media (max-aspect-ratio: 4 / 3) {
+/* ===== MEDIA QUERIES ===== */
+
+/* Mòbils petits i estretes (<= 480px) */
+@media (max-width: 480px) {
   .stage {
-    grid-template-rows: minmax(60px, 9dvh) minmax(0, 1fr) minmax(74px, 10dvh);
+    grid-template-rows: auto minmax(0, 1fr);
+    padding: clamp(8px, 2vmin, 16px);
+    gap: clamp(8px, 1.5vmin, 14px);
+  }
+
+  .brand-strip {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: clamp(10px, 2vmin, 16px);
+  }
+
+  .brand-logo {
+    width: clamp(140px, 38vw, 220px);
+    padding: clamp(6px, 1vmin, 10px);
+  }
+
+  .race-title {
+    min-width: clamp(200px, 60vw, 320px);
+  }
+
+  .race-title span {
+    font-size: clamp(14px, 3.5vw, 22px);
+  }
+
+  .race-title strong {
+    font-size: clamp(28px, 7vw, 48px);
+  }
+
+  .timer-panel {
+    padding: clamp(16px, 3vmin, 28px);
+    gap: clamp(10px, 1.8vh, 18px);
+  }
+
+  .dragon-art {
+    width: clamp(100px, 30vw, 180px);
+    opacity: 0.3;
+  }
+
+  .status-row,
+  .subline {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: clamp(4px, 1vh, 8px);
+    padding-right: clamp(100px, 28vw, 180px);
+    font-size: clamp(14px, 4vw, 24px);
+  }
+
+  .round-lockup {
+    gap: clamp(16px, 4vw, 28px);
+    margin: clamp(10px, 1.5vh, 18px) 0;
+  }
+
+  #roundLabel {
+    font-size: clamp(50px, 14vw, 90px);
+  }
+
+  #roundTotal {
+    font-size: clamp(30px, 8vw, 52px);
+  }
+
+  .clock {
+    font-size: clamp(100px, 28vw, 220px);
+    margin-top: -1vh;
+  }
+
+  .lap-dots {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(4px, 1.5vw, 8px);
+  }
+
+  .lap-dot {
+    min-height: clamp(28px, 6vw, 42px);
+    font-size: clamp(11px, 2.8vw, 15px);
+  }
+
+  .control-dock {
+    position: fixed;
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-height: 85vh;
+    border-left: none;
+    border-top: 4px solid var(--paper);
+    padding: clamp(14px, 3vmin, 20px);
+    transform: translateY(100%);
+  }
+
+  body.controls-visible .control-dock,
+  .control-dock:hover,
+  .control-dock:focus-within {
+    transform: translateY(0);
+  }
+
+  .adjust-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .timer-panel[data-phase="countdown"] .clock {
+    font-size: clamp(80px, 24vw, 200px);
+  }
+
+  .timer-panel[data-phase="countdown"] #roundLabel {
+    font-size: clamp(36px, 10vw, 70px);
+  }
+}
+
+/* Mòbils (481px - 720px) */
+@media (min-width: 481px) and (max-width: 720px) {
+  body {
+    overflow: auto;
+  }
+
+  .stage {
+    grid-template-rows: auto minmax(500px, 1fr);
+    padding: clamp(12px, 2vmin, 20px);
+    min-height: 100dvh;
+  }
+
+  .brand-strip {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: clamp(12px, 2.5vmin, 20px);
+  }
+
+  .brand-logo {
+    width: clamp(160px, 32vw, 260px);
+  }
+
+  .race-title {
+    min-width: clamp(280px, 55vw, 420px);
+  }
+
+  .race-title span {
+    font-size: clamp(16px, 3vw, 28px);
+  }
+
+  .race-title strong {
+    font-size: clamp(32px, 6vw, 58px);
+  }
+
+  .timer-panel {
+    min-height: 500px;
+    padding: clamp(20px, 3.5vmin, 36px);
+    box-shadow: 8px 8px 0 rgba(6, 9, 11, 0.7);
+  }
+
+  .dragon-art {
+    width: clamp(140px, 28vw, 220px);
+    opacity: 0.38;
+  }
+
+  .status-row,
+  .subline {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: clamp(5px, 1vh, 10px);
+    padding-right: clamp(140px, 30vw, 220px);
+    font-size: clamp(16px, 3.5vw, 28px);
+  }
+
+  .clock {
+    font-size: clamp(130px, 30vw, 260px);
+  }
+
+  .lap-dots {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .control-dock {
+    position: fixed;
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-height: 80vh;
+    border-left: none;
+    border-top: 4px solid var(--paper);
+    transform: translateY(100%);
+  }
+
+  body.controls-visible .control-dock,
+  .control-dock:hover,
+  .control-dock:focus-within {
+    transform: translateY(0);
+  }
+}
+
+/* Tablets i pantalles mitjanes (721px - 1024px) */
+@media (min-width: 721px) and (max-width: 1024px) {
+  .control-dock {
+    width: clamp(280px, 26vw, 340px);
+  }
+}
+
+/* Desktops grans (> 1400px) */
+@media (min-width: 1400px) {
+  .control-dock {
+    width: clamp(380px, 26vw, 420px);
+  }
+
+  .timer-panel {
+    padding: clamp(40px, 4vmin, 56px) clamp(40px, 4vmin, 56px) clamp(32px, 3.5vmin, 48px);
+  }
+
+  .clock {
+    font-size: clamp(180px, min(24vw, 40vh), 400px);
+  }
+}
+
+/* Pantalles amb aspect ratio vertical (més altes que amples) */
+@media (max-aspect-ratio: 4 / 3) and (min-width: 721px) {
+  .stage {
+    grid-template-rows: minmax(60px, 9dvh) minmax(0, 1fr);
     padding: clamp(14px, 2vmin, 24px);
   }
 
@@ -546,26 +765,30 @@ body.controls-visible .control-dock,
   }
 }
 
-@media (min-aspect-ratio: 19 / 9) {
+/* Pantalles ultra-panoràmiques (molt amples) */
+@media (min-aspect-ratio: 19 / 9) and (min-width: 1025px) {
   .stage {
-    padding-left: 5vw;
-    padding-right: 5vw;
+    padding-left: clamp(40px, 5vw, 80px);
   }
 
   .timer-panel {
-    padding-left: 5vw;
-    padding-right: 5vw;
+    padding-left: clamp(40px, 5vw, 80px);
+    padding-right: clamp(40px, 5vw, 80px);
   }
 
   .clock {
-    font-size: clamp(180px, min(26vw, 50vh), 430px);
+    font-size: clamp(180px, min(26vw, 50vh), 480px);
+  }
+
+  .control-dock {
+    width: clamp(380px, 28vw, 460px);
   }
 }
 
-@media (max-aspect-ratio: 10 / 11) {
-  /* Pantalles molt altes (més alçada que amplada) */
+/* Pantalles molt altes (més alçada que amplada) */
+@media (max-aspect-ratio: 10 / 11) and (min-width: 721px) {
   .stage {
-    grid-template-rows: auto minmax(0, 1fr) auto;
+    grid-template-rows: auto minmax(0, 1fr);
     padding: clamp(8px, 1.2vmin, 16px);
     gap: clamp(8px, 1.2vh, 14px);
   }
@@ -600,74 +823,173 @@ body.controls-visible .control-dock,
   }
 }
 
-@media (min-aspect-ratio: 21 / 9) {
-  /* Pantalles ultra-panoramiques */
+/* Pantalles ultra-panoràmiques extremes */
+@media (min-aspect-ratio: 21 / 9) and (min-width: 1400px) {
   .stage {
-    padding-left: 8vw;
-    padding-right: 8vw;
+    padding-left: clamp(60px, 8vw, 120px);
   }
 
   .timer-panel {
-    padding-left: 8vw;
-    padding-right: 8vw;
+    padding-left: clamp(60px, 8vw, 120px);
+    padding-right: clamp(60px, 8vw, 120px);
   }
 
   .clock {
-    font-size: clamp(200px, min(28vw, 55vh), 480px);
+    font-size: clamp(200px, min(28vw, 55vh), 520px);
   }
 
   .race-title {
     min-width: min(50vw, 600px);
   }
+
+  .control-dock {
+    width: clamp(420px, 30vw, 520px);
+  }
 }
 
-@media (max-width: 720px) {
-  body {
-    overflow: auto;
-  }
-
-  .stage {
-    grid-template-rows: auto minmax(560px, 1fr) auto;
-    min-height: 100dvh;
-  }
-
-  .brand-strip {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .brand-logo {
-    width: min(74vw, 260px);
-  }
-
-  .race-title {
-    min-width: min(88vw, 430px);
+/* Ajustaments per a pantalles d'alta resolució */
+@media (min-width: 1920px) {
+  .control-dock {
+    width: clamp(400px, 24vw, 480px);
   }
 
   .timer-panel {
-    min-height: 560px;
-    box-shadow: 8px 8px 0 rgba(6, 9, 11, 0.7);
+    padding: clamp(48px, 4.5vmin, 64px);
+    gap: clamp(20px, 2.5vh, 32px);
+  }
+
+  .brand-logo {
+    width: clamp(220px, 16vw, 320px);
+  }
+
+  .race-title strong {
+    font-size: clamp(60px, min(4.2vw, 7.5vh), 90px);
+  }
+
+  .clock {
+    font-size: clamp(220px, min(22vw, 42vh), 420px);
+  }
+
+  #roundLabel {
+    font-size: clamp(100px, min(8vw, 14vh), 160px);
+  }
+}
+
+/* Ajustaments per orientació landscape en mòbils */
+@media (max-height: 500px) and (orientation: landscape) {
+  .stage {
+    grid-template-rows: auto minmax(0, 1fr);
+    padding: clamp(8px, 1.5vmin, 16px);
+    gap: clamp(8px, 1.2vh, 14px);
+  }
+
+  .brand-strip {
+    flex-direction: row;
+    gap: clamp(16px, 3vw, 32px);
+  }
+
+  .brand-logo {
+    width: clamp(100px, 18vw, 180px);
+    padding: clamp(6px, 1vmin, 10px);
+  }
+
+  .race-title {
+    min-width: clamp(180px, 32vw, 320px);
+  }
+
+  .race-title span {
+    font-size: clamp(12px, 2.5vw, 20px);
+  }
+
+  .race-title strong {
+    font-size: clamp(24px, 4.5vw, 44px);
+  }
+
+  .timer-panel {
+    padding: clamp(14px, 2.5vmin, 24px);
+    gap: clamp(8px, 1.5vh, 14px);
   }
 
   .dragon-art {
-    width: min(48vw, 220px);
-    opacity: 0.35;
+    width: clamp(80px, 15vw, 140px);
+    top: clamp(8px, 1.5vh, 16px);
+    opacity: 0.32;
   }
 
   .status-row,
   .subline {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 5px;
+    font-size: clamp(12px, 2.5vw, 20px);
+    padding-right: clamp(90px, 18vw, 150px);
+  }
+
+  .round-lockup {
+    margin: clamp(8px, 1.2vh, 14px) 0;
+    gap: clamp(14px, 2.5vw, 24px);
+  }
+
+  #roundLabel {
+    font-size: clamp(40px, 10vw, 80px);
+  }
+
+  #roundTotal {
+    font-size: clamp(24px, 5vw, 48px);
+  }
+
+  .clock {
+    font-size: clamp(80px, 20vw, 160px);
+    margin-top: 0;
+  }
+
+  .progress-wrap {
+    padding-top: clamp(8px, 1.2vh, 14px);
+    gap: clamp(8px, 1.2vh, 14px);
+  }
+
+  .progress-track {
+    height: clamp(10px, 2vh, 16px);
   }
 
   .lap-dots {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: clamp(4px, 0.8vw, 8px);
+  }
+
+  .lap-dot {
+    min-height: clamp(20px, 3.5vh, 32px);
+    font-size: clamp(10px, 1.8vw, 14px);
   }
 
   .control-dock {
-    width: min(360px, 96vw);
-    border-left: 0;
-    border-top: 4px solid var(--paper);
+    width: 34vw;
+    padding: clamp(12px, 2vmin, 18px);
+    gap: clamp(10px, 1.5vmin, 16px);
+  }
+
+  .action {
+    min-height: clamp(40px, 6vmin, 56px);
+    font-size: clamp(16px, 2.5vmin, 24px);
+  }
+
+  .mini-action {
+    min-height: clamp(32px, 5vmin, 44px);
+    font-size: clamp(11px, 1.4vmin, 14px);
+  }
+
+  .schedule h2 {
+    font-size: clamp(11px, 1.4vmin, 14px);
+  }
+
+  .schedule li {
+    min-height: clamp(24px, 3.5vmin, 32px);
+    font-size: clamp(10px, 1.3vmin, 13px);
+    padding: clamp(5px, 0.8vmin, 8px) clamp(6px, 1vmin, 9px);
+  }
+
+  .timer-panel[data-phase="countdown"] .clock {
+    font-size: clamp(70px, 18vw, 140px);
+  }
+
+  .timer-panel[data-phase="countdown"] #roundLabel {
+    font-size: clamp(32px, 8vw, 64px);
   }
 }
